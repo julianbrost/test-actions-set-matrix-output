@@ -1,0 +1,13 @@
+name: Set database versions matrix
+outputs:
+  matrix:
+    description: 'Matrix for the next job'
+runs:
+  using: composite
+  steps:
+    - run: |
+      {
+        echo 'matrix<<EOF'
+        cat ${{ github.action_path }}/matrix.json
+        echo EOF
+      } >> "$GITHUB_OUTPUT"
