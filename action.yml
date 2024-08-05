@@ -5,7 +5,8 @@ outputs:
 runs:
   using: composite
   steps:
-    - run: |
+    - shell: bash
+      run: |
         {
           echo 'matrix<<EOF'
           cat ${{ github.action_path }}/matrix.json
