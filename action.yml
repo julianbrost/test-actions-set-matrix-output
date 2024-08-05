@@ -6,8 +6,8 @@ runs:
   using: composite
   steps:
     - run: |
-      {
-        echo 'matrix<<EOF'
-        cat ${{ github.action_path }}/matrix.json
-        echo EOF
-      } >> "$GITHUB_OUTPUT"
+        {
+          echo 'matrix<<EOF'
+          cat ${{ github.action_path }}/matrix.json
+          echo EOF
+        } >> "$GITHUB_OUTPUT"
