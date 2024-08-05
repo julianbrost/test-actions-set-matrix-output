@@ -11,4 +11,4 @@ runs:
           echo 'matrix<<EOF'
           cat ${{ github.action_path }}/matrix.json
           echo EOF
-        } >> "$GITHUB_OUTPUT"
+        } | tee /dev/stderr >> "$GITHUB_OUTPUT"
