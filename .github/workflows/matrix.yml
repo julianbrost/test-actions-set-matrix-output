@@ -14,12 +14,4 @@ jobs:
       matrix: ${{ steps.matrix.outputs.matrix }}
     steps:
       - id: matrix
-        shell: bash
-        run: |
-          {
-            echo 'matrix<<EOF'
-            cat "$MATRIX_JSON"
-            echo EOF
-          } | tee /dev/stderr >> "$GITHUB_OUTPUT"
-        env:
-          MATRIX_JSON: ${{ github.action_path }}/matrix.json
+        uses: julianbrost/test-actions-set-matrix-output@main
