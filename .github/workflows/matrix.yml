@@ -13,5 +13,8 @@ jobs:
     outputs:
       matrix: ${{ steps.matrix.outputs.matrix }}
     steps:
+      - id: env
+        shell: bash
+        run: env
       - id: matrix
         uses: julianbrost/test-actions-set-matrix-output@main
