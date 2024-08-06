@@ -13,8 +13,11 @@ jobs:
     outputs:
       matrix: ${{ steps.matrix.outputs.matrix }}
     steps:
-      - id: matrix
-        uses: julianbrost/test-actions-set-matrix-output@main
       - id: find
         shell: bash
         run: find / -xdev -name matrix.json
+      - id: find2
+        shell: bash
+        run: find /home/runner/work -xdev
+      - id: matrix
+        uses: julianbrost/test-actions-set-matrix-output@main
