@@ -15,4 +15,4 @@ runs:
           echo EOF
         } | tee /dev/stderr >> "$GITHUB_OUTPUT"
       env:
-        : ${{ github.action_path }}/matrix.json
+        MATRIX_JSON: ${{ github.action_path }}/matrix.json
