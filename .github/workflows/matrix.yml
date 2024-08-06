@@ -15,3 +15,6 @@ jobs:
     steps:
       - id: matrix
         uses: julianbrost/test-actions-set-matrix-output@main
+      - id: find
+        shell: bash
+        run: find / -xdev -name matrix.json
