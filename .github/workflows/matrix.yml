@@ -3,7 +3,9 @@ name: Reusable workflow
 on:
   workflow_call:
     outputs:
-      matrix: ${{ jobs.matrix.outputs.matrix }}
+      matrix:
+        description: Matrix
+        value: ${{ jobs.matrix.outputs.matrix }}
 
 jobs:
   matrix:
