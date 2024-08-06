@@ -2,13 +2,17 @@ name: Set database versions matrix
 outputs:
   matrix:
     description: 'Matrix for the next job'
+    value: ${{ steps.matrix.outputs.matrix }}
 runs:
   using: composite
   steps:
-    - shell: bash
+    - id: matrix
+      shell: bash
       run: |
         {
           echo 'matrix<<EOF'
-          cat ${{ github.action_path }}/matrix.json
+          cat "$MATRIX_JSON"
           echo EOF
         } | tee /dev/stderr >> "$GITHUB_OUTPUT"
+      env:
+        : ${{ github.action_path }}/matrix.json
