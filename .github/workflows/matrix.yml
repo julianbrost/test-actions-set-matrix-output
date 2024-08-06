@@ -13,8 +13,13 @@ jobs:
     outputs:
       matrix: ${{ steps.matrix.outputs.matrix }}
     steps:
-      - id: find
-        shell: bash
-        run: find /home/runner/work -xdev
       - id: matrix
-        uses: julianbrost/test-actions-set-matrix-output@main
+        shell: bash
+        run: |
+          {
+            echo 'matrix<<EOF'
+            cat "$MATRIX_JSON"
+            echo EOF
+          } | tee /dev/stderr >> "$GITHUB_OUTPUT"
+        env:
+          MATRIX_JSON: /home/runner/work/_actions/julianbrost/test-actions-set-matrix-output/main/matrix.json
